@@ -8,14 +8,13 @@
     <link rel="shortcut icon" href="/img/LOGO EL GRAN POLLO.png" />
     <link rel='stylesheet' type='text/css' media='screen' href='/css/estilos.css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
     <body>
     <section class="form-main">
         <div class="form-conte">
             <div class="box">
                 <h1>Login</h1>
-                <form action="" method="post">
+                <form action="/" method="post" id="loginForm">
                     <p>Usuario
                         <input type="text" placeholder="Ingrese su usuario" name="usuario" required>
                         
@@ -24,10 +23,11 @@
                         <input type="password" placeholder="Ingrese su Contraseña" name="password" required>
                         
                     </p>
-                    <button  type="submit" class="btn">Ingresar</button>
+                    <button type="submit" class="btn">Ingresar</button>
                 </form>
             </div>
         </div>
     </section>
 </body>
+<script src="login.js"></script>
 </html>

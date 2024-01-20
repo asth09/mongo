@@ -10,10 +10,7 @@ router.post('/views/index', passport.authenticate('local',{
     failureRedirect: '/views/index',
     failureFlash: true
 }))
-router.post('/users/registro', (req,res) => {
-    const {usuario, password} = req.body;
-        res.send('ok');
-});
+
 
 router.get('/users/logout', (req, res) => {
     req.logout();
