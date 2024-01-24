@@ -3,7 +3,8 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
   usuario: String,
-  password: String
+  password: String,
+	role:  String
 });
 
 userSchema.methods.comparePassword = async function(candidatePassword) {
