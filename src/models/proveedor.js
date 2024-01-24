@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
-const clienteSchema = new Schema({
+const proveedorSchema = new Schema({
   nombre: String,
   rif: Number,
   direccion: String,
@@ -8,4 +8,4 @@ const clienteSchema = new Schema({
   vendedor: String
 }, {versionKey:false});
 
-module.exports = mongoose.model('clientes', clienteSchema);
+module.exports = mongoose.model('proveedores', proveedorSchema);

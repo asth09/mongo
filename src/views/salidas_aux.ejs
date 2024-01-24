@@ -1,2 +1,72 @@
 <%- include('templates/head', {tituloWeb: 'Salidas'}) -%>
 <%- include('templates/navbar'); -%>
+<br>
+<br>
+<br>
+<body>
+    <div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mt-5 mb-3 clearfix">
+						<h2 class="pull-left" id="salidas">Salidas</h2>
+						<a href="create_salidas" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Agregar una salidas</a>
+					</div>
+					<div class="container-fluid">
+						<form class="d-flex">
+							<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar:">
+							<hr>
+						</form>
+					</div>
+					<br>
+					<% if (salidas.length > 0) { %>
+					<table class="table table-bordered table-striped table_id" id="tblDatos">
+						<thead>
+							<tr>
+								<th style="display: none;">id</th>
+								<th>Nombre</th>
+								<th>Salidas</th>
+								<th>Observacion</th>
+								<th>Vendedor</th>
+								<th>Fecha</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<% salidas.forEach(salida => { %>
+								<td style="display: none;"><%= salida._id %></td>
+							    <td><%= salida.nombre %></td>
+                                <td><%= salida.salidas %> </td>
+                                <td><%= salida.observacion %></td>
+                                <td><%= salida.vendedor %></td>
+                                <td><%= salida.fecha %></td>
+                                <td>
+									<a href="" class="mr-3" title="Ver registro" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+									<a href="" class="mr-3 btnEditar" title="Modificar registro" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+									<a href="" title="Borrar registro" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+								</td>
+							</tr>
+							<% }); %>
+						</tbody>						
+					</table>
+					<% } else { %>
+						<div class="alert alert-danger"><em>Ningun registro encontrado.</em></div>
+				<% } %>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-end">
+							<li class="page-item disabled">
+							<a class="page-link">Anterior</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+							<a class="page-link" href="#">Siguiente</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

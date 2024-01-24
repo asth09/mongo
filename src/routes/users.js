@@ -5,11 +5,11 @@ const passport = require('passport');
 router.get('/users/registro', (req,res) => {
     res.render('registro');
 });
-router.post('/views/index', passport.authenticate('local',{
-    successRedirect: '/views/home',
-    failureRedirect: '/views/index',
+/*router.post('/', passport.authenticate('local',{
+    successRedirect: '/home',
+    failureRedirect: '/',
     failureFlash: true
-}))
+}))*/
 
 
 router.get('/users/logout', (req, res) => {

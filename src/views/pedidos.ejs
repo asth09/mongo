@@ -1,2 +1,60 @@
 <%- include('templates/head', {tituloWeb: 'Pedidos'}) -%>
 <%- include('templates/navbar'); -%>
+<br>
+<br>
+<br>
+<body>
+    <div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mt-5 mb-3 clearfix">
+						<h2 class="pull-left" id="pedidos">Pedidos</h2>
+						<a href="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Ver el despacho</a>
+					</div>
+						<select class="form-control">
+                            <option>Selecciona al cliente</option>
+                            <option>ackerman</option>
+                        </select>
+                        <br>
+					<div class="container-fluid">
+						<form class="d-flex">
+							<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar:">
+							<hr>
+						</form>
+					</div>
+					<br>
+					<table class="table table-bordered table-striped table_id" id="tblDatos">
+						<thead>
+							<tr>
+								<th>id</th>
+								<th>Codigo</th>
+								<th>Nombre</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+							    <td></td>
+                                <td> </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+									<a href="" title="Borrar registro" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+								</td>
+							</tr>
+						</tbody>						
+					</table>
+                    <input name="id_usuario" type="hidden">
+
+                    <input name="total" type="hidden">
+                    <button type="submit" class="btn btn-success">Terminar venta</button>
+                    <a href="./cancelarVenta2.php" class="btn btn-danger">Cancelar venta</a>
+                    <a href="fac.php" class="btn btn-info">Ventas</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
