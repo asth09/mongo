@@ -1,5 +1,6 @@
+require('dotenv').config();
 const express = require('express');
-const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const path = require("path");
 const registrarUsuario = require('./controllers/userController');
 const clientes = require('./routes/clientes')
@@ -11,13 +12,13 @@ const login = require('./controllers/authController');
 
 //initilizacions
 const app = express();
+app.use(cookieParser())
 app.use(clientes)
 app.use(productos)
 app.use(proveedor)
 app.use(entradas)
 app.use(salidas)
 require('./database.js');
-require('./config/passport');
 
 //settings
 app.set('port', process.env.PORT || 3000);
@@ -28,12 +29,11 @@ app.set('views', path.join(__dirname, 'views'));
 //midlewares
 app.use(express.urlencoded({extended: false}));
 app.use(express.json())
-app.use(passport.initialize());
 app.post('/', async (req, res) => {
   const { usuario, password } = req.body;
   try {
     const user = await login(usuario, password);
-    res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+    res.render('home');
   } catch (error) {
     res.status(401).json({ message: error.message });
   }

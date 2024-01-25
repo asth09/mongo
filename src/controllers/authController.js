@@ -1,4 +1,4 @@
-const UserModel = require('../models/userModel');
+const UserModel = require('../models/user');
 const {generateToken} =  require('../helpers/jwtHelper.js');
 
 const login = async (usuario, password) => {

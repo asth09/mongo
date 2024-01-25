@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken')
 
 const generateToken = async (user) => {
@@ -6,7 +7,7 @@ const generateToken = async (user) => {
 			_id: user._id,
 			role: user.role
 		},
-		"ackerman",
+		process.env.JWT_SECRET,
 		{
 			expiresIn: "2h"
 		}
@@ -15,7 +16,7 @@ const generateToken = async (user) => {
 
 const verifyToken = async (token) => {
 	try {
-		return await jwt.verify(token, "ackerman")
+		return await jwt.verify(token, process.env.JWT_SECRET)
 	} catch (e) {
 		return null
 	}

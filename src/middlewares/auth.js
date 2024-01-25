@@ -1,5 +1,5 @@
 const {verifyToken} = require('../helpers/jwtHelper.js')
-const userModel = require('../models/userModel.js')
+const userModel = require('../models/user.js')
 
 const checkAuth = async (req, res, next) => {
 	try {
