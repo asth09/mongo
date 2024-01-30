@@ -1,7 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken')
 const path = require("path");
+const bodyParser = require('body-parser')
 const registrarUsuario = require('./controllers/userController');
 const clientes = require('./routes/clientes')
 const productos = require('./routes/productos')
@@ -13,6 +15,7 @@ const login = require('./controllers/authController');
 //initilizacions
 const app = express();
 app.use(cookieParser())
+app.use(bodyParser.json())
 app.use(clientes)
 app.use(productos)
 app.use(proveedor)
@@ -38,6 +41,17 @@ app.post('/', async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 });
+app.get('/set_cookies', (req, res) => {
+  //res.setHeader('set-Cookie', 'newUser=true');
+  res.cookie('newUser', false);
+  res.cookie('isEmployee', true, { maxAge: 1000 * 60 *60 *24, httpOnly: true });
+  res.send('you got the cookies');
+})
+app.get('/read_cookies', (req, res) => {
+  const cookies = req.cookies;
+  console.log(cookies.newUser);
+  res.json(cookies);
+})
 
 //global variables
 
@@ -57,8 +71,7 @@ app.post('/users/registro', async (req, res) => {
       res.status(500).json({ error: 'Error al registrar usuario' });
     }
   });
-
-
+  
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'))
 });

@@ -45,13 +45,76 @@
 									<a href="" title="Borrar registro" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
 								</td>
 							</tr>
-						</tbody>						
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>Total</td>
+								<td>Iva</td>
+								<td>Sub Total</td>
+							</tr>
+						</tfoot>						
 					</table>
+					<div class="d-flex">
+						<select class="form-control">
+                            <option>Seleccione tipo de pago </option>
+							<option>Pago total</option>
+							<option>Pago parcial a: 2 coutas</option>
+							<option>Pago parcial a: 3 coutas</option>
+							<option>Pago parcial a: 4 coutas</option>
+							<option>Pago parcial a: 5 coutas</option>
+							<option>Pago parcial a: 6 coutas</option>
+							<option>Pago parcial a: 12 coutas</option>
+                        </select>
+						<select class="form-control">
+                            <option>Seleccione modalidad de pago:</option>
+							<option>Efectivo</option>
+							<option>Pago movil</option>
+							<option>Transferencia</option>
+							<option>Divisas</option>
+                        </select>
+					</div>
+					<br>
+					<div id="div_pago_cred" class="col-sm-12 pb-2" style="display: none;">
+						<div class="card col-sm-12 pl-3 ml-3 pr-3 mr-3">
+							<div class="card-header">
+								<p class="card-title">Complete toda la información para registrar el pago a crédito del Cliente</p>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label for="" class="form-control-label">Cantidad de Cuotas:</label>
+											<input type="number" step="1" min="0" class="form-control" id="cuotas" name="cuotas" placeholder="Nº de Cuotas" value="0" readonly="true" />
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label for="" class="form-control-label">Primer Pago:</label>
+											<input type="number" step="0.01" class="form-control" id="prim_pago" name="prim_pago" placeholder="Primer Pago de Cuota" value="0" />
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label for="" class="form-control-label">Pago por cuotas:</label>
+											<input type="number" step="0.01" class="form-control" id="cuotas_pag" name="cuotas_pag" placeholder="Primer Pago de Cuota" value="0" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="" class="form-control-label">Días de Pago:</label>
+											<input type="number" min="1" max="31" class="form-control" name="dias_pago" placeholder="Días de Pago" value="1" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
                     <input name="id_usuario" type="hidden">
 
                     <input name="total" type="hidden">
                     <button type="submit" class="btn btn-success">Terminar venta</button>
-                    <a href="./cancelarVenta2.php" class="btn btn-danger">Cancelar venta</a>
+                    <a href="./cancelarVenta2" class="btn btn-danger">Cancelar venta</a>
                     <a href="fac.php" class="btn btn-info">Ventas</a>
 				</div>
 			</div>

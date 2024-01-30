@@ -6,7 +6,9 @@ router.get('/users/registro', (req,res) => {
 });
 
 router.get('/users/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-})
+    res.clearCookie('jwtToken'); // Ejemplo: limpiar una cookie llamada 'jwtToken'
+  
+    // Enviar una respuesta al cliente
+    res.render('index');
+});
 module.exports = router;

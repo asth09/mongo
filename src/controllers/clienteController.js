@@ -12,24 +12,28 @@ module.exports.mostrar = async (req, res)=>{
     }
 
 //Crear
-module.exports.crear = (req, res)=>{
-  //console.log(req.body)
-  const cliente = new ClienteModel({
-      nombre: req.body.nombre,
-      rif: req.body.rif,
-      direccion:  req.body.direccion,
-      telefono:  req.body.telefono,
-      vendedor:  req.body.vendedor
-  })
-  cliente.save(function(error,clientes){
-      if(error){
-          return res.status(500).json({
-              message: 'Error al crear el Clientes'
-          })
-      }
-      res.redirect('/clientes')
-  })
-}
+module.exports.crear = async (req, res) => {
+    try {
+      const { nombre, rif, direccion, telefono, vendedor } = req.body;
+  
+      // Crear un nuevo cliente
+      const nuevoCliente = new ClienteModel({
+        nombre,
+        rif,
+        direccion,
+        telefono,
+        vendedor
+      });
+  console.log(nuevoCliente)
+      // Guardar el nuevo cliente en la base de datos
+      const clienteCreado = await nuevoCliente.save();
+  
+      return res.status(201).json({ message: 'Cliente creado exitosamente', cliente: clienteCreado });
+    } catch (error) {
+      return res.status(500).json({ message: 'Error al crear el cliente', error: error.message });
+    }
+  };
+  
 
 //Editar
 module.exports.editar = (req,res)=>{
